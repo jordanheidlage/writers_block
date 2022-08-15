@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Rabbits",
+      "description": "This is a story about a rabbit.",
+      "date_created": "05/18/2019",
+      "user_id": "jheidlage"
+       
+    },
+    {
+      "name": "Baseball Story",
+      "description": "This is a book about baseball.",
+      "date_created": "05/20/2021",
+      "user_id": "lucassaaler"
+    },
+    {
+      "name": "Studying Law",
+      "description": "This is a book to prepare for the LSAT",
+      "date_created": "05/15/2015",
+      "user_id": "alecwestbrook"
+    }
+  ]
