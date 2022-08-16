@@ -42,7 +42,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       return;
     }
 
-    res.status(200).json("Successfully deleted writing");
+    res.status(200).json("Successfully deleted!");
   } catch (err) {
     res.status(500).json(err);
   }
