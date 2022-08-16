@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all  and JOIN with user data
-    const WritingsData = await Writings.findAll({
+    const writingsData = await Writings.findAll({
       include: [
         {
           model: User,
@@ -15,13 +15,15 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const Writings = WritingsData.map((Writings) => Writings.get({ plain: true }));
+    // const writings = writingsData.map((writings) => writings.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      Writings, 
-      logged_in: req.session.logged_in 
-    });
+    // res.render('homepage', { 
+    //   writings, 
+    //   logged_in: req.session.logged_in 
+    // });
+
+    res.status(200).json(writingsData)
   } catch (err) {
     res.status(500).json(err);
   }
