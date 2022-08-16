@@ -29,9 +29,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/Writings/:id', async (req, res) => {
+router.get('/writings/:id', async (req, res) => {
   try {
-    const WritingsData = await Writings.findByPk(req.params.id, {
+    const writingsData = await Writings.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -40,12 +40,13 @@ router.get('/Writings/:id', async (req, res) => {
       ],
     });
 
-    const Writings = WritingsData.get({ plain: true });
+    // const writings = writingsData.get({ plain: true });
 
-    res.render('Writings', {
-      ...Writings,
-      logged_in: req.session.logged_in
-    });
+    // res.render('writings', {
+    //   ...writings,
+    //   logged_in: req.session.logged_in
+    // });
+    res.status(200).json(writingsData)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,12 +61,13 @@ router.get('/profile', withAuth, async (req, res) => {
       include: [{ model: Writings }],
     });
 
-    const user = userData.get({ plain: true });
+    // const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
+    // res.render('profile', {
+    //   ...user,
+    //   logged_in: true
+    // });
+    res.status(200).json(userData)
   } catch (err) {
     res.status(500).json(err);
   }

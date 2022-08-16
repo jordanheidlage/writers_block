@@ -30,19 +30,19 @@ router.put('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const WritingsData = await Writings.destroy({
+    const writingsData = await Writings.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!WritingsData) {
+    if (!writingsData) {
       res.status(404).json({ message: 'No Writings found with this id!' });
       return;
     }
 
-    res.status(200).json(WritingsData);
+    res.status(200).json("Successfully deleted writing");
   } catch (err) {
     res.status(500).json(err);
   }
