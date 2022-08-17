@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New writing:</h3>
+
+    <form class="form new-writing-form">
+      <div class="form-group">
+        <label for="writing-name">writing name:</label>
+        <input class="form-input" type="text" id="writing-name" name="writing-name" />
+      </div>
+      <div class="form-group">
+        <label for="writing-funding">needed funding ($):</label>
+        <input class="form-input" type="number" id="writing-funding" name="writing-funding" />
+      </div>
+      <div class="form-group">
+        <label for="writing-desc">description:</label>
+        <textarea class="form-input" id="writing-desc" name="writing-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if writings.length}}
+  <div class="col-md-6 writing-list">
+    <h3>Current writings:</h3>
+
+    {{#each writings as |writing|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/writing/{{writing.id}}">{{writing.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{writing.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
