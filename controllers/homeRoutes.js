@@ -62,7 +62,6 @@ router.get('/profile', withAuth, async (req, res) => {
       ...user,
       logged_in: true
     });
-    res.status(200).json(userData)
   } catch (err) {
     res.status(500).json(err);
   }
