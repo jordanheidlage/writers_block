@@ -2,6 +2,19 @@ const router = require('express').Router();
 const { Writings } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newWriting = await Writings.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newWriting);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.put('/:id', withAuth, (req, res) => {
   // update writing data
   const writingToUpdate = Writings.update(req.body, {
