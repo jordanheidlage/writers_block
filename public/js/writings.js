@@ -1,36 +1,39 @@
-const startEditing = async (event) => {
-    console.log("TEST!")
+const editButton = document.querySelector('.start-editing')
+const description = document.querySelector('#editing-desc')
+const editingForm = document.querySelector('.editing-form')
+const url = document.location.href
+const lastSegment = url.split("/").pop()
+
+const startEditing = (event) => {
+    event.preventDefault();
+    editButton.classList.add("hide")
+    editingForm.classList.remove("hide")
 }
 
-const newFormHandler = async (event) => {
+const editFormHandler = async (event) => {
     event.preventDefault();
   
-    // const name = document.querySelector('#writing-name').value.trim();
-    // const description = document.querySelector('#writing-desc').value.trim();
-  
-    // if (name && description) {
-    //   const response = await fetch(`/api/writings`, {
-    //     method: 'POST',
-    //     body: JSON.stringify({ name, description }),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //   });
-  
-    //   if (response.ok) {
-    //     document.location.replace('/profile');
-    //   } else {
-    //     alert('Failed to create writing');
-    //   }
-    // }
-    console.log("test!")
+    const description = document.querySelector('#editing-desc').value.trim();
+    if (description) {
+      const response = await fetch(`/api/writings/${lastSegment}`, {
+        method: 'PUT',
+        body: JSON.stringify({ description }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      if (!response.ok) {
+        alert('Failed to edit writing');
+      }else{
+        document.location.replace(url)
+      }
+      
+    }
   };
   
   
   document
     .querySelector('.editing-form')
-    .addEventListener('submit', newFormHandler);
+    .addEventListener('submit', editFormHandler);
 
-    document
-    .querySelector('.start-editing')
-    .addEventListener('submit', startEditing);
+    editButton.addEventListener('submit', startEditing);
