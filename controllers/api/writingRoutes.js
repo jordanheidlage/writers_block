@@ -22,7 +22,7 @@ router.put('/:id', withAuth, (req, res) => {
       id: req.params.id,
     },
   })
-  res.status(200).json(writingToUpdate)
+  // res.status(200).json(writingToUpdate)
     .catch((err) => {
       res.status(400).json(err);
     });

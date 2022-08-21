@@ -32,22 +32,8 @@ const editFormHandler = async (event) => {
     }
   };
   
-const dlFormHandler = async (event) => {
-  event.preventDefault()
-  const response = await fetch(`/writings/download/${lastSegment}`, {
-    method: 'GET'
-  })
-  if (!response.ok) {
-    alert('Failed to download writing');
-  } 
-}
-  
   document
     .querySelector('.editing-form')
-    .addEventListener('submit', editFormHandler);
-
-    document
-    .querySelector('.download-form')
-    .addEventListener('submit', dlFormHandler);    
+    .addEventListener('submit', editFormHandler);  
 
     editButton.addEventListener('submit', startEditing);
