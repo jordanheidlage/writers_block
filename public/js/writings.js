@@ -23,11 +23,7 @@ const editFormHandler = async (event) => {
           'Content-Type': 'application/json',
         }
       })
-      if (!response.ok) {
-        alert('Failed to edit writing');
-      }else{
         document.location.replace(url)
-      }
       
     }
   };
