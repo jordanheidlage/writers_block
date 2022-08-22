@@ -16,7 +16,7 @@ const editFormHandler = async (event) => {
   
     const description = document.querySelector('#editing-desc').value.trim();
     if (description) {
-      const response = await fetch(`/api/writings/${lastSegment}`, {
+      await fetch(`/api/writings/${lastSegment}`, {
         method: 'PUT',
         body: JSON.stringify({ description }),
         headers: {
@@ -24,6 +24,8 @@ const editFormHandler = async (event) => {
         }
       })
         document.location.replace(url)
+        location.reload()
+        location.reload()
       
     }
   };
