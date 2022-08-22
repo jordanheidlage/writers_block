@@ -23,22 +23,5 @@
     </form>
   </div>
 
-  {{#if writings.length}}
-  <div class="col-md-6 writing-list">
-    <h3>Current writings:</h3>
-
-    {{#each writings as |writing|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/writing/{{writing.id}}">{{writing.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{writing.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./js/profile.js"></script>

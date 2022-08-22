@@ -5,19 +5,16 @@ const newFormHandler = async (event) => {
     const description = document.querySelector('#writing-desc').value.trim();
   
     if (name && description) {
-      const response = await fetch(`/api/writings`, {
-        method: 'POST',
-        body: JSON.stringify({ name, description }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      axios.post('http://localhost:3001/api/writings', {
+        name: name,
+        description: description
+      })
+      .then(function () {
+          document.location.replace('/profile');
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to create writing');
-      }
     }
   };
   
