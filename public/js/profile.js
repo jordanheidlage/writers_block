@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
     const description = document.querySelector('#writing-desc').value.trim();
   
     if (name && description) {
-      axios.post('https://project2-jh.herokuapp.com/api/writings', {
+      axios.post('http://localhost:3001/api/writings', {
         name: name,
         description: description
       })
