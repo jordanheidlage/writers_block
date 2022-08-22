@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Writings, User } = require('../models');
 const withAuth = require('../utils/auth');
-const fs = require('fs-extra')
 
 router.get('/', async (req, res) => {
   try {
@@ -47,25 +46,6 @@ router.get('/writings/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.get('/writings/download/:id', async (req, res) => {
-  try {
-    const writingsData = await Writings.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-    fs.outputFile('/downloaded-stories/'+writingsData.name+'.txt', writingsData.description, err => {
-      console.log(err)
-    })
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
