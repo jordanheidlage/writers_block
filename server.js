@@ -1,5 +1,4 @@
 const path = require('path');
-const request = require('supertest');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -11,13 +10,6 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-request(app)
-  .get('/', '/writings/1')
-  .expect(200)
-  .end(function(err, res) {
-    if (err) throw err;
-  })
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
