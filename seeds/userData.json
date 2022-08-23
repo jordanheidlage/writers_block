@@ -13,5 +13,11 @@
       "name": "Alec",
       "email": "alec@aol.com",
       "password": "password12345"
+    },
+
+    {
+      "name": "ismail",
+      "email": "ismail.saoudi@icloud.com",
+      "password": "password12345"
     }
   ]
