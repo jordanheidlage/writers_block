@@ -3,7 +3,15 @@
 } 
 
 
-
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #c1c9cc;
+  text-decoration: none;
+  font-size: 100%;
+}
 
 
 /* header, .project:not(:last-child) {
@@ -12,15 +20,7 @@
 
 
 
-  .no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
-  }
+
   
   .no-button:hover {
     color: #065b83;
