@@ -14,8 +14,9 @@
 }
 
 
-/* header, .project:not(:last-child) {
+header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
+    background-color: #2d3e50;
   }
 
 
@@ -23,11 +24,11 @@
 
   
   .no-button:hover {
-    color: #065b83;
+    color: #a4a5a6;
     text-decoration: underline;
   }
   
   .list-group {
     width:100%;
     list-style: none;
-  } */
+  } 
