@@ -8,7 +8,7 @@ const newFormHandler = async (event) => {
       description: description
     })
     .then(function () {
-        document.location.replace('/profile');
+        document.location.replace('/');
     })
     .catch(function (error) {
       console.log(error);
