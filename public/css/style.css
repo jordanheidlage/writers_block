@@ -1,10 +1,16 @@
-header, .project:not(:last-child) {
+.hide{
+  display:none;
+} 
+
+
+
+
+
+/* header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
   }
 
-.hide{
-  display:none;
-}
+
 
   .no-button {
     background: none;
@@ -24,4 +30,4 @@ header, .project:not(:last-child) {
   .list-group {
     width:100%;
     list-style: none;
-  }
+  } */

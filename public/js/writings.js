@@ -1,4 +1,5 @@
 const editButton = document.querySelector('.start-editing')
+const title = document.querySelector('#story-name')
 const description = document.querySelector('#editing-desc')
 const editingForm = document.querySelector('.editing-form')
 const url = document.location.href
@@ -15,25 +16,22 @@ const editFormHandler = async (event) => {
   
     const description = document.querySelector('#editing-desc').value.trim();
     if (description) {
-      const response = await fetch(`/api/writings/${lastSegment}`, {
+      await fetch(`/api/writings/${lastSegment}`, {
         method: 'PUT',
         body: JSON.stringify({ description }),
         headers: {
           'Content-Type': 'application/json',
         }
       })
-      if (!response.ok) {
-        alert('Failed to edit writing');
-      }else{
         document.location.replace(url)
-      }
+        location.reload()
+        location.reload()
       
     }
   };
   
-  
   document
     .querySelector('.editing-form')
-    .addEventListener('submit', editFormHandler);
+    .addEventListener('submit', editFormHandler);  
 
     editButton.addEventListener('submit', startEditing);
